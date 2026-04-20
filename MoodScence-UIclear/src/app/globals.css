@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] min-h-screen text-slate-100 bg-[#030712] overflow-x-hidden;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/[0.02] backdrop-blur-3xl border border-white/[0.05] shadow-[0_8px_32px_rgb(0,0,0,0.3)];
+  }
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:bg-white/[0.05] transition-all;
+  }
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500;
+  }
+  .neon-glow {
+    @apply shadow-[0_0_40px_rgba(34,211,238,0.3)];
+  }
+}
+
+/* Light Theme Override Hack */
+html.theme-light {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.theme-light img,
+html.theme-light video {
+  filter: invert(1) hue-rotate(180deg);
+}
